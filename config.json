@@ -1,0 +1,39 @@
+{
+"log": { "loglevel": "warning" },
+"dns": {
+"servers": ["8.8.8.8", "1.1.1.1"],
+"queryStrategy": "UseIPv4"
+},
+"inbounds": [{
+"port": 7860,
+"protocol": "vless",
+"settings": {
+"clients": [{"id": "a5f9fe49-4da0-4d48-bb0e-a8cd9e227674"}],
+"decryption": "none"
+},
+"streamSettings": {
+"network": "xhttp",
+"xhttpSettings": {
+"path": "/",
+"mode": "packet-up"
+}
+}
+}],
+"outbounds": [
+{
+"protocol": "freedom",
+"settings": { "domainStrategy": "UseIPv4" },
+"tag": "direct"
+},
+{
+"protocol": "blackhole",
+"tag": "blocked"
+}
+],
+"routing": {
+"domainStrategy": "AsIs",
+"rules": [
+{ "type": "field", "outboundTag": "direct", "network": "udp,tcp" }
+]
+}
+}
