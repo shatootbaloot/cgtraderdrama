@@ -12,11 +12,8 @@
 "decryption": "none"
 },
 "streamSettings": {
-"network": "xhttp",
-"xhttpSettings": {
-"path": "/",
-"mode": "packet-up"
-}
+"network": "ws",
+"wsSettings": {"path": "/"}
 }
 }],
 "outbounds": [
@@ -35,5 +32,6 @@
 "rules": [
 { "type": "field", "outboundTag": "direct", "network": "udp,tcp" }
 ]
+
 }
 }
